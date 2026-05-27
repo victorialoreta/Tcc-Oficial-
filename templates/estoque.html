@@ -9,7 +9,79 @@
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-     <table id="tabela" class="table">
+
+  
+<nav id="navbarPrincipal" class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <button id="botaoMenu"
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#menuNavbar">
+
+    <span id="iconeMenu" class="navbar-toggler-icon"></span>
+  </button>
+
+  <div id="menuNavbar" class="collapse navbar-collapse">
+
+    <ul id="listaNavbar" class="navbar-nav">
+
+      <!-- Página Inicial -->
+      <li id="itemPaginaInicial" class="nav-item">
+        <a id="linkPaginaInicial" class="nav-link" href="#">
+          Página Inicial
+        </a>
+      </li>
+
+      <!-- Editar Itens -->
+      <li id="itemEditarItens" class="nav-item">
+        <a id="linkEditarItens" class="nav-link" href="#">
+          Editar Itens
+        </a>
+      </li>
+
+      <!-- Novo Item -->
+      <li id="itemNovoItem" class="nav-item">
+        <a id="linkNovoItem" class="nav-link" href="#">
+          Novo Item
+        </a>
+      </li>
+
+      <!-- Usuários (Dropdown) -->
+      <li id="itemUsuarios" class="nav-item dropdown">
+
+        <a id="linkUsuarios"
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown">
+
+          Usuários
+        </a>
+
+        <div id="menuUsuarios" class="dropdown-menu">
+
+          <a id="usuarioAdmin" class="dropdown-item" href="#">
+            Administrador
+          </a>
+
+          <a id="usuarioFuncionarios" class="dropdown-item" href="#">
+            Funcionários
+          </a>
+
+          <a id="usuarioConvidados" class="dropdown-item" href="#">
+            Convidados
+          </a>
+
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<table id="tabela" class="table">
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -43,7 +115,7 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img id="logo"  src="static/logo.png" alt="Logo Customizado" width="145" height="47">
+      <img id="logo"  src="static/logo.png" alt="Logo Customizado" width="169" height="62">
     </a>
   </div> 
    
@@ -53,6 +125,8 @@
     </form>
   </div>
 </nav>
+
+
 
 </body>
 </html>
