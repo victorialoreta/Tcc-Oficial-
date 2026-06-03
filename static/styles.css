@@ -56,13 +56,13 @@
 #tabela{
     width: 1911px;
     position: absolute;
-    top: 100px;
+    top: 150px;
     left: 5px;
-    border: 3px solid darkblue;
+    border: 3px solid rgb(10, 13, 175);
 }
 #tabela th,
 #tabela td{
-    border: 2px solid darkblue;
+    border: 2px solid rgb(10, 13, 175);
 }
 
 
@@ -98,13 +98,13 @@
 
 #logo{
     position: absolute;
-    left:20px;
-    top:-40px;
+    left:1px;
+    top:-95px;
 }
 
 #linkPaginaInicial{
     margin-left:290px;
-    top:10px;
+    top:60px;
 
  }
 
