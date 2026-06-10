@@ -53,70 +53,69 @@
     left: 900px
 }
 
+/* TABELA */
 #tabela{
-    width: 1911px;
+    width: 100%;
     position: absolute;
     top: 150px;
     left: 5px;
     border: 3px solid rgb(10, 13, 175);
 }
+
 #tabela th,
 #tabela td{
     border: 2px solid rgb(10, 13, 175);
 }
 
 
+/* BOTÃO PESQUISAR */
 #Pesquisar{
     width: 100px;
-    background-color: rgb(10, 13, 175); /* fundo laranja */
-    color: rgb(255, 255, 255); /* texto azul escuro */
-    border: 2px solid rgb(0, 0, 0); /* borda azul escura */
-    
     padding: 10px;
+
+    background-color: rgb(10, 13, 175);
+    color: white; /* texto branco */
+
+    border: 2px solid black;
     border-radius: 8px;
-    
+
     cursor: pointer;
-    transition: 0.3s; /* animação suave */
+    transition: 0.3s;
+
     position: relative;
     left: 15px;
 }
 
 #Pesquisar:hover{
-    background-color: rgb(39, 169, 255);
+    background-color: rgb(40, 44, 220);
+    color: white;
 }
 
 #Pesquisar:active{
     transform: scale(0.95);
-    background-color: rgb(0, 0, 0);
+    background-color: black;
+    color: white;
 }
+
+
+/* CAMPO DE PESQUISA */
 #Pesquisa{
     width: 500px;
     position: relative;
     left: -30px;
-  
 }
 
+
+/* LOGO */
 #logo{
     position: absolute;
-    left:1px;
-    top:-95px;
+    top: -85px;
+    left: 20px;
 }
 
+
+/* LINKS DO MENU */
 #linkPaginaInicial{
-    margin-left:290px;
-    top:60px;
-
- }
-
-#linkEditarItens{ 
-
-}
-#linkNovoItem{ 
-
-}
-#linkUsuarios{
-
- }
-#usuarioAdmin{ 
-
+    margin-left: 290px;
+    top: 60px;
 }

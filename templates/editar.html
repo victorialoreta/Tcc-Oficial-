@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/styleditar.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" id="paginainicial" aria-current="page" href="#">Página inicial</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="editaritens" href="#">Editar itens</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="novoitem" href="#">Novo item</a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+    <div id="containerEditar">
+
+    <h1 id="tituloEditar">✏️ Editar Itens</h1>
+    <p id="subtituloEditar">
+        Selecione um item da lista para editar suas informações.
+    </p>
+
+    <!-- TABELA -->
+    <div id="caixaTabela">
+
+        <h3>Lista de Itens</h3>
+
+        <table id="tabelaEditar">
+
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Função</th>
+                <th>Quantidade</th>
+            </tr>
+
+            <tr>
+                <td>190609</td>
+                <td>Alicate</td>
+                <td>Apertar coisas</td>
+                <td>30</td>
+            </tr>
+
+            <tr>
+                <td>100109</td>
+                <td>Parafusadeira</td>
+                <td>Parafusar</td>
+                <td>5</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div id="caixaFormulario">
+
+        <h3>Informações do Item</h3>
+
+        <div class="linha">
+
+            <div class="campo">
+                <label>Id</label>
+                <input type="text">
+            </div>
+
+            <div class="campo">
+                <label>Nome</label>
+                <input type="text">
+            </div>
+
+        </div>
+
+        <div class="linha">
+
+            <div class="campo">
+                <label>Função</label>
+                <input type="text">
+            </div>
+
+            <div class="campo">
+                <label>Quantidade</label>
+                <input type="number">
+            </div>
+
+        </div>
+
+        <div id="botoes">
+
+            <button id="btnSalvar">
+                Salvar Alterações
+            </button>
+
+            <button id="btnExcluir">
+                Excluir Item
+            </button>
+
+            <button id="btnLimpar">
+                Limpar Campos
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

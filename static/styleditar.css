@@ -1,0 +1,198 @@
+body{
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* CONTAINER */
+#containerEditar{
+    width: 95%;
+    margin: 30px auto;
+}
+
+/* TÍTULOS */
+#tituloEditar{
+    color: #111;
+    font-size: 0px;
+}
+
+#subtituloEditar{
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* CAIXAS */
+#caixaTabela,
+#caixaFormulario{
+    background: white;
+
+    border: 2px solid rgb(10,13,175);
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+}
+
+/* TABELA */
+#tabelaEditar{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tabelaEditar th,
+#tabelaEditar td{
+    border: 2px solid rgb(10,13,175);
+    padding: 15px;
+}
+
+#tabelaEditar th{
+    background: white;
+    font-weight: bold;
+}
+
+#tabelaEditar tr:hover{
+    background-color: #eef4ff;
+}
+
+/* FORM */
+.linha{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.campo{
+    flex: 1;
+}
+
+.campo label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.campo input{
+    width: 100%;
+    padding: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* BOTÕES */
+#botoes{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#btnSalvar{
+    background: rgb(10,13,175);
+    color: white;
+
+    border: none;
+
+    padding: 15px 25px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+#btnExcluir{
+    background: rgb(255, 81, 0);
+    color: white;
+
+    border: none;
+
+    padding: 15px 25px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+#btnLimpar{
+    background: white;
+
+    border: 1px solid #aaa;
+
+    padding: 15px 25px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+/* HOVER */
+#btnSalvar:hover{
+    background: rgb(30,35,220);
+}
+
+#btnExcluir:hover{
+    background: rgb(200,0,0);
+}
+
+#btnLimpar:hover{
+    background: #eee;
+}
+
+/* TODOS OS BOTÕES */
+#paginainicial,
+#editaritens,
+#novoitem{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+
+    padding: 15px 28px;
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+/* HOVER */
+#paginainicial:hover,
+#editaritens:hover,
+#novoitem:hover{
+    background-color: rgb(73, 76, 243);
+    color: white;
+}
+
+/* BOTÃO ATIVO - EDITAR ITENS */
+#editaritens{
+    background-color: rgb(10, 13, 175);
+    color: white !important;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* CLIQUE */
+#paginainicial:active,
+#editaritens:active,
+#novoitem:active{
+    transform: scale(0.95);
+}
+#paginainicial,
+#editaritens,
+#novoitem{
+   padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#listaNavbar{
+    display: flex;
+    align-items: center;
+    gap: 100px; /* espaço entre os itens */
+}
+
+#paginainicial{
+    margin-right: 10px;
+}
+
+#editaritens{
+    margin-right: 10px;
+}
