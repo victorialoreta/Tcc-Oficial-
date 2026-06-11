@@ -14,5 +14,9 @@ def estoque():
 def editar():
     return render_template('editar.html')
 
+@app.route('/novoitem.html')
+def novoitem():
+    return render_template('novoitem.html')
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/stylenovoitem.css">
+</head>
+<body>
+    
+    <nav id="menuPrincipal">
+
+   <img
+          id="logo"
+          src="static/logonova.png"
+          alt="Logo Customizado"
+          width="180"
+          height="140">
+
+    <div id="abasMenu">
+
+        <a href="index.html" id="abaPaginaInicial">
+            Página inicial
+        </a>
+
+        <a href="editar.html" id="abaEditarItens">
+            Editar itens
+        </a>
+
+        <a href="novoitem.html" id="abaNovoItem">
+            Novo item
+        </a>
+
+    </div>
+
+</nav>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Item</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="caixaListaItens">
+
+    <div id="cabecalhoLista">
+        <h2 id="tituloLista">Lista de Itens</h2>
+
+        <button id="botaoAdicionarItem">
+            + Adicionar item
+        </button>
+    </div>
+
+    <table id="tabelaItens">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Função</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>190609</td>
+                <td>Alicate</td>
+                <td>Apertar coisas</td>
+                <td>30</td>
+            </tr>
+
+            <tr>
+                <td>100109</td>
+                <td>Parafusadeira</td>
+                <td>Parafusar</td>
+                <td>5</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<div id="caixaNovoItem">
+
+    <h2 id="tituloNovoItem">Novo Item</h2>
+
+    <div id="linhaCampos1">
+
+        <div class="grupoCampo">
+            <label>Nome</label>
+            <input type="text" id="campoNome">
+        </div>
+
+        <div class="grupoCampo">
+            <label>Função</label>
+            <input type="text" id="campoFuncao">
+        </div>
+
+    </div>
+
+    <div id="linhaCampos2">
+
+        <div class="grupoCampo">
+            <label>Quantidade</label>
+            <input type="number" id="campoQuantidade">
+        </div>
+
+        <div class="grupoCampo">
+            <label>Id (opcional)</label>
+            <input type="text" id="campoId">
+        </div>
+
+    </div>
+
+    <div id="areaBotoes">
+
+        <button id="botaoSalvar">
+            Salvar Item
+        </button>
+
+        <button id="botaoCancelar">
+            Cancelar
+        </button>
+
+    </div>
+
+</div>
