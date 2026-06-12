@@ -145,3 +145,93 @@
     background:#0d16a8;
     transition:0.3s;
 }
+/* TODOS OS BOTÕES */
+#paginainicial,
+#editaritens,
+#novoitem{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+
+    padding: 15px 28px;
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+/* HOVER */
+#paginainicial:hover,
+#editaritens:hover,
+#novoitem:hover{
+    background-color:rgb(60, 63, 214);
+    color: white;
+}
+
+/* BOTÃO ATIVO - EDITAR ITENS */
+#editaritens{
+    background-color: rgb(10, 13, 175);
+    color: white !important;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* CLIQUE */
+#paginainicial:active,
+#editaritens:active,
+#novoitem:active{
+    transform: scale(0.95);
+}
+#paginainicial,
+#editaritens,
+#novoitem{
+   padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#listaNavbar{
+    display: flex;
+    align-items: center;
+    gap: 100px; /* espaço entre os itens */
+}
+
+#paginainicial{
+    margin-right: 10px;
+}
+
+#editaritens{
+    margin-right: 10px;
+}
+
+#logo{
+    position: absolute;
+    margin-top: -13px;
+    left: 5px;
+}
+
+/* Move a lista inteira dos menus */
+.navbar-nav {
+    margin-left: 200px; /* empurra tudo para a direita */
+}
+
+/* Página inicial */
+#paginainicial {
+    position: relative;
+    left: 23px; /* direita */
+    top: 10px;  /* baixo */
+}
+
+/* Editar itens */
+#editaritens {
+    position: relative;
+    left: 26px;
+    top: 10px;
+}
+
+/* Novo item */
+#novoitem {
+    position: relative;
+    left: 28px;
+    top: 10px;
+}
