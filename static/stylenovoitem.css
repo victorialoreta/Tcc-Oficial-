@@ -235,3 +235,11 @@
     left: 28px;
     top: 10px;
 }
+
+#logo{
+    position: absolute; 
+    top: 1px;
+    left: 80px;         
+    left: 20px;   
+    z-index: 9999;      
+}
