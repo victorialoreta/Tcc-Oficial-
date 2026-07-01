@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="static/styleditar.css">
 </head>
 <body>
-
+    
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     
@@ -19,13 +19,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" id="paginainicial" aria-current="page" href="#">Página inicial</a>
+          <a class="nav-link active" id="paginainicial" href="/estoque.html" >Pagina Inicial</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="editaritens" href="#">Editar itens</a>
+          <a class="nav-link" id="editaritens" href="/editar.html">Editar itens</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="novoitem" href="#">Novo item</a>
+          <a class="nav-link" id="novoitem" href="novoitem.html">Novo item</a>
           <img
           id="logo"
           src="static/logod.png"
@@ -58,19 +58,16 @@
                 <th>Quantidade</th>
             </tr>
 
-            <tr>
-                <td>190609</td>
-                <td>Alicate</td>
-                <td>Apertar coisas</td>
-                <td>30</td>
-            </tr>
+     {% for item in resultado %}
+<tr onclick="selecionarItem(this)"> 
 
-            <tr>
-                <td>100109</td>
-                <td>Parafusadeira</td>
-                <td>Parafusar</td>
-                <td>5</td>
-            </tr>
+    <td>{{item[0]}}</td>
+    <td>{{item[1]}}</td>
+    <td>{{item[3]}}</td>
+    <td>{{item[2]}}</td>
+
+</tr>
+{% endfor %}
 
         </table>
 
@@ -81,34 +78,36 @@
 
         <h3>Informações do Item</h3>
 
+        <form method="POST" action="/salvar_edicao">
         <div class="linha">
 
-            <div class="campo">
-                <label>Id</label>
-                <input type="text">
-            </div>
+<div class="linha">
 
-            <div class="campo">
-                <label>Nome</label>
-                <input type="text">
-            </div>
+    <div class="campo">
+        <label>Id</label>
+        <input type="text" id="idItem">
+    </div>
 
-        </div>
+    <div class="campo">
+        <label>Nome</label>
+        <input type="text" id="nomeItem">
+    </div>
 
-        <div class="linha">
+</div>
 
-            <div class="campo">
-                <label>Função</label>
-                <input type="text">
-            </div>
+<div class="linha">
 
-            <div class="campo">
-                <label>Quantidade</label>
-                <input type="number">
-            </div>
+    <div class="campo">
+        <label>Função</label>
+        <input type="text" id="funcaoItem">
+    </div>
 
-        </div>
+    <div class="campo">
+        <label>Quantidade</label>
+        <input type="number" id="quantidadeItem">
+    </div>
 
+</div>
         <div id="botoes">
 
             <button id="btnSalvar">
@@ -124,9 +123,32 @@
             </button>
 
         </div>
+     </form>
 
     </div>
 
 </div>
+
+
+<script>
+
+function selecionarItem(linha){
+
+    document.getElementById("idItem").value =
+        linha.cells[0].innerText;
+
+    document.getElementById("nomeItem").value =
+        linha.cells[1].innerText;
+
+    document.getElementById("funcaoItem").value =
+        linha.cells[2].innerText;
+
+    document.getElementById("quantidadeItem").value =
+        linha.cells[3].innerText;
+
+}
+
+</script>
+
 </body>
 </html>

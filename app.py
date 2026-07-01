@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import mysql.connector
 
 app = Flask(__name__)
 
@@ -8,11 +9,46 @@ def index():
 
 @app.route('/estoque.html')
 def estoque():
-    return render_template('estoque.html')
+
+    conexao = mysql.connector.connect(
+        host = 'localhost',
+        password = '',
+        user = 'root',
+        port = 3306,
+        database = 'almoxarifado'
+    )
+
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM estoque")
+
+    resultado = cursor.fetchall()
+
+    return render_template('estoque.html', resultado=resultado)
 
 @app.route('/editar.html')
 def editar():
-    return render_template('editar.html')
+
+    conexao = mysql.connector.connect(
+        host='localhost',
+        password='',
+        user='root',
+        port=3306,
+        database='almoxarifado'
+    )
+
+    cursor = conexao.cursor()
+
+    cursor.execute("SELECT * FROM estoque")
+
+    resultado = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return render_template(
+        'editar.html',
+        resultado=resultado
+    )
 
 @app.route('/novoitem.html')
 def novoitem():

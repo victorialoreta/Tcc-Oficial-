@@ -74,28 +74,7 @@
     </div>
   </nav>
 
-  <!-- TABELA -->
-
-  <table id="tabela" class="table">
-
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Função</th>
-        <th scope="col">Quantidade</th>
-        <th scope="col">Foto</th>
-      </tr>
-    </thead>
-
-    <tbody id="corpoTabela">
-
-    
-
-    </tbody>
-  </table>
-
-  <!-- NAVBAR INFERIOR -->
+    <!-- NAVBAR INFERIOR -->
 
   <nav class="navbar bg-body-tertiary">
 
@@ -113,83 +92,35 @@
       </a>
     </div>
 
-    <!-- PESQUISA -->
+  <!-- TABELA -->
 
-    <form id="Pesquisa" class="d-flex" role="search">
+  <table id="tabela" class="table">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Função</th>
+        <th scope="col">Quantidade</th>
+        <th scope="col">Foto</th>
+      </tr> 
 
-      <input
-        class="form-control me-2"
-        type="search"
-        placeholder="Pesquisar"
-        aria-label="Pesquisar">
+      {% for item in resultado %}
+      <tr>
+        <td scope="col">{{item[0]}}</td>
+        <td scope="col">{{item[1]}}</td>
+        <td scope="col">{{item[3]}}</td>
+        <td scope="col">{{item[2]}}</td>
+        <td scope="col"><button type="button" class="btn btn-primary" onclick="mostrar_foto('{{item[6]}}')">Foto</button></td>
+      </tr>
+      {%endfor%}
 
-      <button
-        id="Pesquisar"
-        class="btn"
-        type="submit">
-
-        Pesquisar
-      </button>
-
-    </form>
-
-  </nav>
+  </table>
 
   <script>
-    async function carregarEstoque(){
-
-  const resposta = await fetch("/estoque");
-
-  const dados = await resposta.json();
-
-  const tabela =
-document.getElementById("corpoTabela");
-
-tabela.innerHTML = "";
-
-dados.forEach(item => {
-
-tabela.innerHTML += `
-
-<tr>
-
-<td>${item.id}</td>
-
-<td>${item.nome}</td>
-
-<td>${item.descricao}</td>
-
-<td>${item.qtde}</td>
-
-<td>
-
-<button
-class="btn btn-primary"
-onclick="mostra_foto('${item.foto}')">
-
-Foto
-
-</button>
-
-</td>
-
-</tr>
-
-`;
-
-});
-
-}
-
-function mostra_foto(url){
-
-Swal.fire({
-imageUrl: url
-});
-
-}
-
-carregarEstoque();
+    function mostrar_foto(argumento){
+      Swal.fire({
+      imageUrl: argumento,
+      });
+    }
   </script>
 </body>
 </html>
