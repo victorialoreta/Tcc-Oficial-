@@ -47,7 +47,7 @@
 
           <a id="linkEditarItens"
             class="nav-link"
-            href="#">
+            href="/editar.html">
 
             Editar Itens
           </a>
@@ -59,7 +59,7 @@
 
           <a id="linkNovoItem"
             class="nav-link"
-            href="#">
+            href="/novoitem.html">
 
             Novo Item
           </a>
@@ -101,6 +101,9 @@
         <th scope="col">Função</th>
         <th scope="col">Quantidade</th>
         <th scope="col">Foto</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Categoria</th>
+        
       </tr> 
 
       {% for item in resultado %}
@@ -109,6 +112,8 @@
         <td scope="col">{{item[1]}}</td>
         <td scope="col">{{item[3]}}</td>
         <td scope="col">{{item[2]}}</td>
+        <td scope="col">{{item[4]}}</td>
+        <td scope="col">{{item[7]}}</td>
         <td scope="col"><button type="button" class="btn btn-primary" onclick="mostrar_foto('{{item[6]}}')">Foto</button></td>
       </tr>
       {%endfor%}

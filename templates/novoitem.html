@@ -10,8 +10,7 @@
 </head>
 <body>
     
-    <nav id="menuPrincipal">
-
+<nav id="menuPrincipal">
    <img
           id="logo"
           src="static/logod.png"
@@ -20,7 +19,7 @@
           height="140">
 
     
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,67 +28,17 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" id="paginainicial" aria-current="page" href="#">Página inicial</a>
+          <a class="nav-link" id="paginainicial" aria-current="page" href="/estoque.html">Página inicial</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="editaritens" href="#">Editar itens</a>
+          <a class="nav-link" id="paginainicial" href="/editar.html">Editar itens</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="novoitem" href="#">Novo item</a>
-
-</nav>
-    <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Novo Item</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<div id="caixaListaItens">
-
-    <div id="cabecalhoLista">
-        <h2 id="tituloLista">Lista de Itens</h2>
-
-        <button id="botaoAdicionarItem">
-            + Adicionar item
-        </button>
+        <li class="nav-item active">
+          <a class="nav-link" id="editaritens" href="#">Novo item</a>
+        </li>
+      </ul>
     </div>
-
-    <table id="tabelaItens">
-
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Função</th>
-                <th>Quantidade</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            <tr>
-                <td>190609</td>
-                <td>Alicate</td>
-                <td>Apertar coisas</td>
-                <td>30</td>
-            </tr>
-
-            <tr>
-                <td>100109</td>
-                <td>Parafusadeira</td>
-                <td>Parafusar</td>
-                <td>5</td>
-            </tr>
-
-        </tbody>
-
-    </table>
-
-</div>
-
+</nav>
 
 <div id="caixaNovoItem">
 
@@ -117,9 +66,23 @@
         </div>
 
         <div class="grupoCampo">
-            <label>Id (opcional)</label>
-            <input type="text" id="campoId">
+            <label>Categoria</label>
+            <input type="text" id="campoCategoria">
         </div>
+
+        <div class="grupoCampo">
+            <label>Preço</label>
+              <div class="input-group">
+        <span class="input-group-text">R$</span>
+        <input type="number" id="campoPreco" class="form-control" step="0.01" min="0">
+    </div>
+</div>
+
+        <div class="grupoCampo">
+            <label>Foto</label>
+            <input type="text" id="campoFoto">
+        </div>
+
 
     </div>
 
