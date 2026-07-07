@@ -6,6 +6,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('login.html')
+    
+
+
 
 @app.route('/estoque.html')
 def estoque():
@@ -89,12 +92,43 @@ def salvar_edicao():
     )
 
     cursor = conexao.cursor()
+  
     query = "UPDATE estoque SET qtde = %s, id = %s, descricao = %s WHERE nome = %s;"
     valores = (qtde, id, descricao, nome)
+    
     cursor.execute(query, valores)
+
     conexao.commit()
 
     return redirect("/editar.html")
+
+@app.route('/incluir_novo', methods=['POST'])
+def incluir_novo():
+    
+    nome = request.form.get('nome')
+    descricao = request.form.get('descricao')
+    qtde = request.form.get('qtde')
+    categoria = request.form.get('categoria')
+    preco = request.form.get('preco')
+    foto = request.form.get('foto')
+
+    conexao = mysql.connector.connect(
+        host='localhost',
+        password='',
+        user='root',
+        port=3306,
+        database='almoxarifado'
+    )
+
+    cursor = conexao.cursor()
+    
+    query = "INSERT INTO estoque (nome, qtde, descricao, preco, foto, categoria) VALUES (%s, %s, %s, %s, %s, %s);"
+    valores = (nome, qtde, descricao, preco, foto, categoria)
+    cursor.execute(query, valores)
+  
+    conexao.commit()
+
+    return redirect("/estoque.html")
 
 @app.route('/deletar', methods=['POST'])
 def deletar():

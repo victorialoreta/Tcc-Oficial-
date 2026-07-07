@@ -54,10 +54,10 @@
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
-                <th>Função</th>
+                <th>Descrição</th>
                 <th>Quantidade</th>
-                <th>Preço</th>
                 <th>Categoria</th>
+                <th>Preço</th>
 
             </tr>
 
@@ -88,10 +88,7 @@
 
 <div class="linha">
 
-    <div class="campo">
-        <label>Id</label>
-        <input type="text" id="idItem" name="id">
-    </div>
+   
 
     <div class="campo">
         <label>Nome</label>
@@ -110,6 +107,16 @@
     <div class="campo">
         <label>Quantidade</label>
         <input type="number" id="quantidadeItem" name="qtde">
+    </div>
+
+ <div class="campo">
+        <label>Categoria</label>
+        <input type="text" id="categoriaItem" name="categoria">
+    </div>
+
+     <div class="campo">
+        <label>Preço</label>
+        <input type="number" id="precoItem" name="preco">
     </div>
 
 </div>
@@ -139,9 +146,7 @@
 
 function selecionarItem(linha){
 
-    document.getElementById("idItem").value =
-        linha.cells[0].innerText;
-
+   
     document.getElementById("nomeItem").value =
         linha.cells[1].innerText;
 
@@ -150,7 +155,12 @@ function selecionarItem(linha){
 
     document.getElementById("quantidadeItem").value =
         linha.cells[3].innerText;
+    
+    document.getElementById("categoriaItem").value =
+        linha.cells[7].innerText;
 
+    document.getElementById("precoItem").value =
+        linha.cells[4].innerText;
 }
 
 
