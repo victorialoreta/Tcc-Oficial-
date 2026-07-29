@@ -1,0 +1,88 @@
+/* LOGO */
+#logo{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+/* MENU */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 80px;
+}
+
+/* BOTÕES */
+#paginainicial,
+#editaritens,
+#novoitem{
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    transition: .3s;
+}
+
+/* HOVER */
+#paginainicial:hover,
+#editaritens:hover,
+#novoitem:hover{
+    background: rgb(60, 63, 214);
+    color: white;
+}
+
+/* BOTÃO ATIVO */
+#novoitem{
+    background: rgb(10, 13, 175);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,.25);
+}
+
+/* CLIQUE */
+#paginainicial:active,
+#editaritens:active,
+#novoitem:active{
+    transform: scale(.95);
+}
+
+/* NOVO ITEM */
+#usuarios{
+    position: relative;
+    left: 28px;
+    top: 0px;
+
+    color: white !important;
+    background-color: rgb(10, 13, 175);
+
+    font-weight: bold;
+    text-decoration: none;
+
+    padding: 12px 28px;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+    transition: all 0.3s ease;
+}
+
+/* PASSAR O MOUSE */
+#usuarios:hover{
+    background-color: rgb(13, 22, 168);
+    color: white !important;
+}
+
+/* CLICAR */
+#usuarios:active{
+    transform: scale(0.95);
+}
+#caixaUsuario{
+    width:95%;
+    margin:25px auto;
+    border:2px solid #1b22d3;
+    border-radius:15px;
+    padding:20px;
+    background:white;
+}

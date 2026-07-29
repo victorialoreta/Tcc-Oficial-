@@ -33,7 +33,11 @@
           width="180"
           height="140">
         </li>
-       
+        
+        <li id="CadastroUsuario" class="nav-item" style="position: relative; top: 10px;">
+          <a  class="nav-link" id="usuarios" href="usuarios.html">Cadastro de usuários</a>
+        </li>
+
       </ul>
     </div>
   </div>
@@ -157,10 +161,10 @@ function selecionarItem(linha){
         linha.cells[3].innerText;
     
     document.getElementById("categoriaItem").value =
-        linha.cells[7].innerText;
+        linha.cells[4].innerText;
 
     document.getElementById("precoItem").value =
-        linha.cells[4].innerText;
+        linha.cells[5].innerText;
 }
 
 
