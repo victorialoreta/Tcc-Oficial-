@@ -22,7 +22,7 @@
           <a class="nav-link active" id="paginainicial" href="/estoque.html" >Pagina Inicial</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="editaritens" href="/editar.html">Editar itens</a>
+          <a class="nav-link" id="editaritens" href="/editar.html" >Editar itens</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="novoitem" href="novoitem.html">Novo item</a>
@@ -33,23 +33,66 @@
           width="180"
           height="140">
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link" id="novoitem" href="usuarios.html">Cadastro de usuários</a>
-          <img
-          id="logo"
-          src="static/logod.png"
-          alt="Logo Customizado"
-          width="180"
-          height="140">
+        
+        <li id="CadastroUsuario" class="nav-item" style="position: relative; top: 10px;">
+          <a  class="nav-link" id="usuarios" href="usuarios.html">Cadastro de usuários</a>
         </li>
-       
+
       </ul>
     </div>
   </div>
 </nav>
     
+<form action="/incluir_usuario" method="POST">
+    <div class="card card-cadastro" style="max-width: 500px; margin: 30px auto;">
+        <div class="titulo p-3 bg-light border-bottom text-center fw-bold">
+            <i class="bi bi-person-plus-fill"></i>
+            Cadastro de Usuários
+        </div>
 
+        <div class="card-body">
+            <div class="mb-4">
+                <label class="form-label">Nome de Usuário</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                    <input type="text" name="login" class="form-control" placeholder="Digite o nome do usuário" required>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Senha</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                    <input type="password" name="password" class="form-control" placeholder="Digite a senha" required>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Tipo de Usuário</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-badge-fill"></i></span>
+                    <select name="role" class="form-select" required>
+                        <option value="" selected disabled>Selecione...</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Visitante">Visitante</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg btn-salvar">
+                    <i class="bi bi-floppy-fill"></i> Salvar Usuário
+                </button>
+                <button type="reset" class="btn btn-secondary btn-lg btn-limpar">
+                    <i class="bi bi-eraser-fill"></i> Limpar Campos
+                </button>
+            </div>
+        </div>
+    </div>
+  </form>
+    
 
 </body>
 </html>

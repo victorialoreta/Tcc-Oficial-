@@ -164,10 +164,8 @@ body{
 
 /* BOTÃO ATIVO - EDITAR ITENS */
 #editaritens{
-    background-color: rgb(10, 13, 175);
-    color: white !important;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    background-color: #f8f9fa;
+    color: rgb(0, 0, 0) !important;
 }
 
 /* CLIQUE */
@@ -237,14 +235,16 @@ body{
     left: 28px;
     top: 0px;
 
-    color: rgb(0, 0, 0);
-    background-color:#f8f9fa;
+    color: white;
+    background-color: rgb(10, 13, 175);
 
     font-weight: bold;
     text-decoration: none;
 
     padding: 12px 28px;
     border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 
     transition: all 0.3s ease;
 }
@@ -259,5 +259,4 @@ body{
 #usuarios:active{
     transform: scale(0.95);
 }
-
 
