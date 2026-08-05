@@ -134,9 +134,38 @@ def deletar():
 
     return redirect("/editar.html")
 
-@app.route('/usuarios.html')
+
+@app.route('/usuarios.html', methods=['GET', 'POST'])
 def usuarios():
-    return render_template('usuarios.html')
+   
+    if request.method == 'GET':
+        return render_template('usuarios.html')
+
+    if request.method == 'POST':
+        login = request.form.get('login')
+        password = request.form.get('password')
+        role = request.form.get('role')
+
+        conexao = mysql.connector.connect(
+            host='localhost',
+            password='',
+            user='root',
+            port=3306,
+            database='almoxarifado'
+        )
+
+        cursor = conexao.cursor()
+        
+        query = "INSERT INTO usuarios (login, password, role) VALUES (%s, %s, %s);"
+        valores = (login, password, role)
+        cursor.execute(query, valores)
+      
+        conexao.commit()
+        
+        cursor.close()
+        conexao.close()
+
+        return redirect("/estoque.html")
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
