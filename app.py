@@ -1,14 +1,22 @@
 from flask import Flask, render_template, request, redirect
+from flask_cors import CORS
+from api.estoque import estoque_api
+from api.usuarios import usuarios_api
 import mysql.connector
 
+
 app = Flask(__name__)
+# Durante os testes locais, aceita requisições de outros clientes.
+
+CORS(app)
+# O prefixo transforma /estoque em /api/estoque.
+app.register_blueprint(estoque_api, url_prefix='/api')
+app.register_blueprint(usuarios_api, url_prefix='/api')
 
 @app.route('/')
 def index():
     return render_template('login.html')
     
-
-
 
 @app.route('/estoque.html')
 def estoque():
@@ -17,7 +25,7 @@ def estoque():
         host = 'localhost',
         password = '',
         user = 'root',
-        port = 3306,
+        port = '3306',
         database = 'almoxarifado'
     )
 
@@ -168,7 +176,7 @@ def usuarios():
         return redirect("/estoque.html")
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5000)
 
 
 

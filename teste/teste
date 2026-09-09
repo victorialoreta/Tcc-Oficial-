@@ -1,0 +1,28 @@
+metodo
+get    http://127.0.0.1:5000/api/usuarios  está ok
+
+
+
+
+post  http://127.0.0.1:5000/api/login  está ok, tem que usar o body
+
+
+testar senha errada
+{
+"login":"vivi",
+"password": "545454"
+}
+
+get e post estoque ok
+
+
+
+{ 
+  "nome": "teste",
+  "qtde": "2",
+  "descricao": "teste",
+  "preco": "2",
+  "estoque_min": "teste",
+  "foto": "teste",
+  "categoria": "teste"
+}
