@@ -22,7 +22,7 @@ def index():
 def estoque():
 
     conexao = mysql.connector.connect(
-        host = 'localhost',
+        host = 'db',
         password = '',
         user = 'root',
         port = '3306',
@@ -40,7 +40,7 @@ def estoque():
 def editar():
 
     conexao = mysql.connector.connect(
-        host='localhost',
+        host='db',
         password='',
         user='root',
         port=3306,
@@ -75,7 +75,7 @@ def salvar_edicao():
     qtde = request.form.get('qtde')
 
     conexao = mysql.connector.connect(
-        host='localhost',
+        host='db',
         password='',
         user='root',
         port=3306,
@@ -104,7 +104,7 @@ def incluir_novo():
     foto = request.form.get('foto')
 
     conexao = mysql.connector.connect(
-        host='localhost',
+        host='db',
         password='',
         user='root',
         port=3306,
@@ -127,7 +127,7 @@ def deletar():
     nome = request.form.get('nome')
 
     conexao = mysql.connector.connect(
-        host='localhost',
+        host='db',
         password='',
         user='root',
         port=3306,
@@ -155,7 +155,7 @@ def usuarios():
         role = request.form.get('role')
 
         conexao = mysql.connector.connect(
-            host='localhost',
+            host='db',
             password='',
             user='root',
             port=3306,
