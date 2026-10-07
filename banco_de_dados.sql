@@ -1,8 +1,8 @@
-CREATE DATABASE almoxarifado;
+CREATE DATABASE IF NOT EXISTS almoxarifado;
 
 USE almoxarifado;
 
-CREATE TABLE estoque(
+CREATE TABLE IF NOT EXISTS estoque(
 	id INT PRIMARY KEY AUTO_INCREMENT, 
 	nome VARCHAR(255), 
 	qtde INT, 
@@ -13,7 +13,7 @@ CREATE TABLE estoque(
 	categoria VARCHAR(255)
 ); 
 
-CREATE TABLE usuarios(
+CREATE TABLE IF NOT EXISTS usuarios(
 	login VARCHAR(255), 
 	password VARCHAR(255), 
 	role VARCHAR(255)
@@ -22,12 +22,6 @@ CREATE TABLE usuarios(
 INSERT INTO usuarios(login, password, role)
 VALUES ("luisa", "12345", "user"), ("vitoria", "12345", "admin");
 
-SELECT * FROM estoque;
-SELECT * FROM usuarios;
-
-UPDATE estoque
-SET qtde = 400
-WHERE nome = 'Parafuso';
 
 INSERT INTO estoque (nome, qtde, descricao, preco, foto, categoria)
 VALUES ('Parafuso', 500, 'Utilizado para fixação e montagem de peças.', 0.50, 'https://images.cws.digital/produtos/gg/22/20/parafuso-sextavado-zincado-316-x-50-10072022-1670520383817.jpg', 'Miscelaneas');
@@ -48,3 +42,6 @@ VALUES ('Fita crepe', 5, 'Fita adesiva utilizada para proteção e marcação.',
 INSERT INTO estoque (nome, qtde, descricao, preco, foto, categoria)
 VALUES ('Teclado', 6, 'Dispositivo de entrada para digitação em computadores.', 150, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwu8YTBxX81tsErPtz5f9peP7kfqwYC3z-AHe0EBQA-oCILVecLyftCfM&s=10', 'Informática');
 
+UPDATE estoque
+SET qtde = 400
+WHERE nome = 'Parafuso';

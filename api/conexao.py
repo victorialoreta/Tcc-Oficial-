@@ -5,11 +5,12 @@ def abrir_conexao():
 
 def abrir_conexao():
     conexao = mysql.connector.connect(
-        host="localhost",
+        host="db",
         user="root",
-        password="",
+        password="mysql_root",
         port=3306,
-        database="almoxarifado"
+        database="almoxarifado",
+        charset = 'utf8'
     )
 
     return conexao

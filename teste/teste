@@ -26,3 +26,29 @@ get e post estoque ok
   "foto": "teste",
   "categoria": "teste"
 }
+
+
+•  SHOW databases; (para listar os bancos)
+• USE nome_do_banco; (para selecionar um banco)
+• SHOW TABLES; (para listar as tabelas)
+
+
+74a781b857fe
+
+
+
+container do mysql
+docker exec -it 74a781b857fe mysql -u root -p 
+
+
+depois  ver bancos  SHOW databases;
+
+
+depois usar o banco   USE  almoxarifado;
+
+
+depois mostrar tabelas  SHOW TABLES;
+
+
+depois ver o que tem dentro da tabela select * from estoque;
+

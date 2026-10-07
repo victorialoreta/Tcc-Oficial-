@@ -10,6 +10,12 @@ services:
     environment:
       MYSQL_DATABASE: almoxarifado
       MYSQL_ROOT_PASSWORD: "mysql_root"
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --init-connect='SET NAMES utf8mb4;'
     ports:
       - "3306:3306"
     volumes:

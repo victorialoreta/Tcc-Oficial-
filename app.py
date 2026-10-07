@@ -23,10 +23,11 @@ def estoque():
 
     conexao = mysql.connector.connect(
         host = 'db',
-        password = '',
+        password = 'mysql_root',
         user = 'root',
         port = '3306',
-        database = 'almoxarifado'
+        database = 'almoxarifado',
+        charset = 'utf8'
     )
 
     cursor = conexao.cursor()
@@ -41,10 +42,11 @@ def editar():
 
     conexao = mysql.connector.connect(
         host='db',
-        password='',
+        password='mysql_root',
         user='root',
         port=3306,
-        database='almoxarifado'
+        database='almoxarifado',
+        charset = 'utf8'
     )
 
     cursor = conexao.cursor()
@@ -76,10 +78,11 @@ def salvar_edicao():
 
     conexao = mysql.connector.connect(
         host='db',
-        password='',
+        password='mysql_root',
         user='root',
         port=3306,
-        database='almoxarifado'
+        database='almoxarifado',
+        charset = 'utf8'
     )
 
     cursor = conexao.cursor()
@@ -105,10 +108,11 @@ def incluir_novo():
 
     conexao = mysql.connector.connect(
         host='db',
-        password='',
+        password='mysql_root',
         user='root',
         port=3306,
-        database='almoxarifado'
+        database='almoxarifado',
+        charset = 'utf8'
     )
 
     cursor = conexao.cursor()
@@ -128,10 +132,11 @@ def deletar():
 
     conexao = mysql.connector.connect(
         host='db',
-        password='',
+        password='mysql_root',
         user='root',
         port=3306,
-        database='almoxarifado'
+        database='almoxarifado',
+        charset = 'utf8'
     )
 
     cursor = conexao.cursor()
@@ -156,10 +161,11 @@ def usuarios():
 
         conexao = mysql.connector.connect(
             host='db',
-            password='',
+            password='mysql_root',
             user='root',
             port=3306,
-            database='almoxarifado'
+            database='almoxarifado',
+            charset = 'utf8'
         )
 
         cursor = conexao.cursor()
