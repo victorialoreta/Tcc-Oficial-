@@ -1,7 +1,3 @@
-import React, { useState } from 'react';
-
-const API_URL = "http://10.154.20.73:5000";
-
 import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
@@ -12,7 +8,6 @@ import {
   ActivityIndicator,
   SafeAreaView,
   StatusBar,
-  Image
 } from 'react-native';
 
 const API_URL = "http://10.154.20.73:5000";
@@ -26,7 +21,8 @@ const DADOS_EXEMPLO = [
   { id: '5', nome: 'Teclado', descricao: 'Dispositivo de entrada para digitação em computadores.', quantidade: 6, preco: '150.00', categoria: 'Informática' },
 ];
 
-export default function Estoque({ navigation }) {
+// Recebendo a propriedade onNavegar que vem do App.js
+export default function Estoque({ onNavegar }) {
   const [itens, setItens] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -72,7 +68,7 @@ export default function Estoque({ navigation }) {
 
         <View style={styles.detailBox}>
           <Text style={styles.detailLabel}>PREÇO</Text>
-          <Text style={styles.detailValue}>R$ {parseFloat(item.preco).toFixed(2)}</Text>
+          <Text style={styles.detailValue}>R\$ {parseFloat(item.preco).toFixed(2)}</Text>
         </View>
 
         <TouchableOpacity 
@@ -87,18 +83,25 @@ export default function Estoque({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#0056b3" />
+      <StatusBar barStyle="light-content" backgroundColor="#075BB5" />
       
       {/* Cabeçalho no estilo SENAI */}
       <View style={styles.header}>
-        <Text style={styles.logoText}>SENAI</Text>
-        <Text style={styles.headerTitle}>Controlo de Estoque</Text>
+        <View style={styles.headerTopRow}>
+          <Text style={styles.logoText}>SENAI</Text>
+          
+          {/* Botão de Sair adicionado */}
+          <TouchableOpacity style={styles.btnSair} onPress={onNavegar}>
+            <Text style={styles.btnSairText}>Sair</Text>
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.headerTitle}>Controle de Estoque</Text>
       </View>
 
       {/* Conteúdo Principal */}
       <View style={styles.content}>
         {loading ? (
-          <ActivityIndicator size="large" color="#ff5722" style={{ marginTop: 40 }} />
+          <ActivityIndicator size="large" color="#F45B2A" style={{ marginTop: 40 }} />
         ) : (
           <FlatList
             data={itens}
@@ -116,18 +119,35 @@ export default function Estoque({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0056b3', // Azul principal igual à tela de login
+    backgroundColor: '#075BB5', // Alterado para o azul exato da sua tela de login
   },
   header: {
-    alignItems: 'center',
     paddingVertical: 20,
-    backgroundColor: '#0056b3',
+    paddingHorizontal: 20,
+    backgroundColor: '#075BB5',
+  },
+  headerTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
   },
   logoText: {
     fontSize: 32,
     fontWeight: 'bold',
     color: '#ffffff',
     letterSpacing: 2,
+  },
+  btnSair: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderRadius: 8,
+  },
+  btnSairText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    fontSize: 14,
   },
   headerTitle: {
     fontSize: 18,
@@ -137,7 +157,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: '#f4f6f9', // Fundo claro para contrastar os cartões da lista
+    backgroundColor: '#f4f6f9',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingHorizontal: 16,
@@ -170,7 +190,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   badgeIdText: {
-    color: '#0056b3',
+    color: '#075BB5',
     fontWeight: 'bold',
     fontSize: 12,
   },
@@ -216,7 +236,7 @@ const styles = StyleSheet.create({
     color: '#222222',
   },
   btnFoto: {
-    backgroundColor: '#ff5722', // Laranja igual ao botão de login
+    backgroundColor: '#F45B2A', // Alterado para o laranja exato da sua tela de login
     paddingVertical: 6,
     paddingHorizontal: 18,
     borderRadius: 6,
