@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 
 import Login from "./Telas/Login";
 import Estoque from "./Telas/Estoque";
+import Editar from "./Telas/Editar";
 
 export default function App() {
   // Estado que guarda o nome da tela atual
@@ -18,19 +19,17 @@ export default function App() {
       {/* Renderização condicional baseada no estado */}
       {telaAtual === 'Login' ? (
         <Login onNavegar={() => navegarPara('Estoque')} />
+      ) : telaAtual === 'Estoque' ? (
+        <Estoque onNavegar={() => navegarPara('Editar')} />
       ) : (
-        <Estoque onNavegar={() => navegarPara('Login')} />
+        <Editar onNavegar={() => navegarPara('Estoque')} />
       )}
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.StyleSheet ? StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-}) : {
-  container: {
-    flex: 1,
-  },
-};
+});

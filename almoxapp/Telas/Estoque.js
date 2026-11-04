@@ -8,25 +8,28 @@ import {
   ActivityIndicator,
   SafeAreaView,
   StatusBar,
+  Modal,
+  Image
 } from 'react-native';
 
-const API_URL = "http://10.154.20.73:5000";
+const API_URL = "http://10.154.20.85:5000";
 
-// Dados iniciais de fallback caso a API não esteja ligada (baseados na tua tabela)
 const DADOS_EXEMPLO = [
-  { id: '1', nome: 'Parafuso', descricao: 'Utilizado para fixação e montagem de peças.', quantidade: 400, preco: '0.50', categoria: 'Miscelaneas' },
-  { id: '2', nome: 'Alicate', descricao: 'Ferramenta usada para segurar, cortar ou dobrar materiais.', quantidade: 20, preco: '30.00', categoria: 'Ferramenta' },
-  { id: '3', nome: 'Chave de fenda', descricao: 'Ferramenta usada para apertar e soltar parafusos.', quantidade: 15, preco: '20.00', categoria: 'Ferramenta' },
-  { id: '4', nome: 'Fita crepe', descricao: 'Fita adesiva utilizada para proteção e marcação.', quantidade: 5, preco: '15.00', categoria: 'Pintura' },
-  { id: '5', nome: 'Teclado', descricao: 'Dispositivo de entrada para digitação em computadores.', quantidade: 6, preco: '150.00', categoria: 'Informática' },
+  { id: '1', nome: 'Parafuso', descricao: 'Utilizado para fixação e montagem de peças.', quantidade: 400, preco: '0.50', categoria: 'Miscelaneas', fotoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK-QUTVAH8t85giNKK4ouuoGrCPRAv89r-Zde8WmvsSShXpRynCaCoOuM&s=10' },
+  { id: '2', nome: 'Alicate', descricao: 'Ferramenta usada para segurar, cortar ou dobrar materiais.', quantidade: 20, preco: '30.00', categoria: 'Ferramenta', fotoUrl: 'https://www.eletrosina.com.br/52-large_default/alicate-univ-8-loyal.jpg' },
+  { id: '3', nome: 'Chave de fenda', descricao: 'Ferramenta usada para apertar e soltar parafusos.', quantidade: 15, preco: '20.00', categoria: 'Ferramenta', fotoUrl: 'https://static.felap.com.br/public/felap/imagens/produtos/chave-de-fenda-5-16-x-10-114115m-mayle-65fc1f7887d00.jpg' },
+  { id: '4', nome: 'Fita crepe', descricao: 'Fita adesiva utilizada para proteção e marcação.', quantidade: 5, preco: '15.00', categoria: 'Pintura', fotoUrl: 'https://images.tcdn.com.br/img/img_prod/1098943/fita_crepe_adesiva_24x45mt_koretech_4und_3309_1_d3cb131146405ee3202c6f0c7a40e82c.jpg' },
+  { id: '5', nome: 'Teclado', descricao: 'Dispositivo de entrada para digitação em computadores.', quantidade: 6, preco: '150.00', categoria: 'Informática', fotoUrl: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500' },
 ];
 
-// Recebendo a propriedade onNavegar que vem do App.js
-export default function Estoque({ onNavegar }) {
+export default function Estoque({ onNavegar, onIrParaEditar }) {
   const [itens, setItens] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // Estados para controlar o Modal da Foto
+  const [modalVisivel, setModalVisivel] = useState(false);
+  const [itemSelecionado, setItemSelecionado] = useState(null);
 
-  // Procura os dados na API ou carrega o exemplo em caso de falha de conexão
   useEffect(() => {
     carregarEstoque();
   }, []);
@@ -48,11 +51,17 @@ export default function Estoque({ onNavegar }) {
     }
   };
 
+  // Função para abrir o Modal e guardar o item clicado
+  const abrirFoto = (item) => {
+    setItemSelecionado(item);
+    setModalVisivel(true);
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
         <View style={styles.badgeId}>
-          <Text style={styles.badgeIdText}>#{item.id}</Text>
+          <Text style={styles.badgeIdText}>{item.id}</Text>
         </View>
         <Text style={styles.nomeItem}>{item.nome}</Text>
         <Text style={styles.categoriaItem}>{item.categoria}</Text>
@@ -68,12 +77,12 @@ export default function Estoque({ onNavegar }) {
 
         <View style={styles.detailBox}>
           <Text style={styles.detailLabel}>PREÇO</Text>
-          <Text style={styles.detailValue}>R\$ {parseFloat(item.preco).toFixed(2)}</Text>
+          <Text style={styles.detailValue}>R$ {parseFloat(item.preco).toFixed(2)}</Text>
         </View>
 
         <TouchableOpacity 
           style={styles.btnFoto} 
-          onPress={() => alert(`Foto do item: ${item.nome}`)}
+          onPress={() => abrirFoto(item)}
         >
           <Text style={styles.btnFotoText}>Foto</Text>
         </TouchableOpacity>
@@ -85,15 +94,21 @@ export default function Estoque({ onNavegar }) {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#075BB5" />
       
-      {/* Cabeçalho no estilo SENAI */}
+      {/* Cabeçalho */}
       <View style={styles.header}>
         <View style={styles.headerTopRow}>
           <Text style={styles.logoText}>SENAI</Text>
           
-          {/* Botão de Sair adicionado */}
-          <TouchableOpacity style={styles.btnSair} onPress={onNavegar}>
-            <Text style={styles.btnSairText}>Sair</Text>
-          </TouchableOpacity>
+          <View style={styles.headerRightButtons}>
+            {/* Botão novo para ir para a página de editar */}
+            <TouchableOpacity style={styles.btnEditarTopo} onPress={onIrParaEditar}>
+              <Text style={styles.btnEditarTopoText}>Editar</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btnEditar} onPress={onNavegar}>
+              <Text style={styles.btnEditarText}>Editar</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <Text style={styles.headerTitle}>Controle de Estoque</Text>
       </View>
@@ -112,6 +127,39 @@ export default function Estoque({ onNavegar }) {
           />
         )}
       </View>
+
+      {/* MODAL PARA EXIBIR A FOTO */}
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisivel}
+        onRequestClose={() => setModalVisivel(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>
+              {itemSelecionado ? itemSelecionado.nome : 'Foto do Item'}
+            </Text>
+
+            {itemSelecionado && (
+              <Image
+                source={{ 
+                  uri: itemSelecionado.fotoUrl || 'https://via.placeholder.com/300' 
+                }}
+                style={styles.modalImage}
+                resizeMode="cover"
+              />
+            )}
+
+            <TouchableOpacity
+              style={styles.btnCloseModal}
+              onPress={() => setModalVisivel(false)}
+            >
+              <Text style={styles.btnCloseModalText}>Fechar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -119,7 +167,7 @@ export default function Estoque({ onNavegar }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#075BB5', // Alterado para o azul exato da sua tela de login
+    backgroundColor: '#075BB5',
   },
   header: {
     paddingVertical: 20,
@@ -132,19 +180,35 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
+  headerRightButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   logoText: {
     fontSize: 32,
     fontWeight: 'bold',
     color: '#ffffff',
     letterSpacing: 2,
   },
-  btnSair: {
+  btnEditarTopo: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    marginRight: 8,
+  },
+  btnEditarTopoText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  btnEditar: {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     paddingVertical: 6,
     paddingHorizontal: 14,
     borderRadius: 8,
   },
-  btnSairText: {
+  btnEditarText: {
     color: '#ffffff',
     fontWeight: 'bold',
     fontSize: 14,
@@ -236,7 +300,7 @@ const styles = StyleSheet.create({
     color: '#222222',
   },
   btnFoto: {
-    backgroundColor: '#F45B2A', // Alterado para o laranja exato da sua tela de login
+    backgroundColor: '#F45B2A',
     paddingVertical: 6,
     paddingHorizontal: 18,
     borderRadius: 6,
@@ -245,5 +309,49 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontWeight: 'bold',
     fontSize: 13,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    width: '85%',
+    backgroundColor: '#ffffff',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 6,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#075BB5',
+    marginBottom: 15,
+  },
+  modalImage: {
+    width: '100%',
+    height: 220,
+    borderRadius: 10,
+    marginBottom: 20,
+    backgroundColor: '#eee',
+  },
+  btnCloseModal: {
+    backgroundColor: '#075BB5',
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    width: '100%',
+    alignItems: 'center',
+  },
+  btnCloseModalText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    fontSize: 15,
   },
 });

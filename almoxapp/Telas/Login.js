@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
   StyleSheet,
   Text,
@@ -8,8 +9,9 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
 } from 'react-native';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { StatusBar } from 'expo-status-bar';
 
@@ -40,7 +42,7 @@ export default function Login({ onNavegar }) {
         {/* CABEÇALHO */}
         <View style={styles.header}>
           <Image
-            source={require('../assets/logo.senai.png')} // Ajustado o caminho do asset para subir um nível de pasta
+            source={require('../assets/logosenai.png')} // Ajustado o caminho do asset para subir um nível de pasta
             style={styles.logoImage}
             resizeMode="contain"
           />
