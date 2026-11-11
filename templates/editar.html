@@ -1,3 +1,4 @@
+<!-- editar.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,49 +13,33 @@
     
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" id="paginainicial" href="/estoque.html" >Pagina Inicial</a>
+          <a class="nav-link active" id="paginainicial" href="/estoque.html">Pagina Inicial</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="editaritens" href="/editar.html">Editar itens</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="novoitem" href="novoitem.html">Novo item</a>
-          <img
-          id="logo"
-          src="static/logod.png"
-          alt="Logo Customizado"
-          width="180"
-          height="140">
+          <img id="logo" src="static/logod.png" alt="Logo Customizado" width="180" height="140">
         </li>
-        
         <li id="CadastroUsuario" class="nav-item" style="position: relative; top: 10px;">
-          <a  class="nav-link" id="usuarios" href="usuarios.html">Cadastro de usuários</a>
+          <a class="nav-link" id="usuarios" href="usuarios.html">Cadastro de usuários</a>
         </li>
-
       </ul>
     </div>
   </div>
 </nav>
     
     <div id="containerEditar">
-
-    
-    </p>
-
-    <!-- TABELA -->
     <div id="caixaTabela">
-
         <h3>Lista de Itens</h3>
-
         <table id="tabelaEditar">
-
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
@@ -62,95 +47,78 @@
                 <th>Quantidade</th>
                 <th>Categoria</th>
                 <th>Preço</th>
-
             </tr>
-
      {% for item in resultado %}
 <tr onclick="selecionarItem(this)"> 
-
     <td>{{item[0]}}</td>
     <td>{{item[1]}}</td>
     <td>{{item[3]}}</td>
     <td>{{item[2]}}</td>
     <td>{{item[7]}}</td>
     <td>{{item[4]}}</td>
-
-
 </tr>
 {% endfor %}
-
         </table>
-
     </div>
 
     <!-- FORMULÁRIO -->
     <div id="caixaFormulario">
-
         <h3>Informações do Item</h3>
-
         <form method="POST" action="/salvar_edicao">
 
-<div class="linha">
+            <!-- CORREÇÃO: Input oculto para enviar o ID do item selecionado -->
+            <input type="hidden" id="idItem" name="id">
 
-   
+            <div class="linha">
+                <div class="campo">
+                    <label>Nome</label>
+                    <input type="text" id="nomeItem" name="nome">
+                </div>
+            </div>
 
-    <div class="campo">
-        <label>Nome</label>
-        <input type="text" id="nomeItem" name="nome">
+            <div class="linha">
+                <div class="campo">
+                    <label>Função</label>
+                    <input type="text" id="funcaoItem" name="descricao">
+                </div>
+
+                <div class="campo">
+                    <label>Quantidade</label>
+                    <input type="number" id="quantidadeItem" name="qtde">
+                </div>
+
+                <div class="campo">
+                    <label>Categoria</label>
+                    <input type="text" id="categoriaItem" name="categoria">
+                </div>
+
+                <div class="campo">
+                    <label>Preço</label>
+                    <input type="number" step="0.01" id="precoItem" name="preco">
+                </div>
+            </div>
+
+            <div id="botoes">
+                <button id="btnSalvar" type="submit">
+                    Salvar Alterações
+                </button>
+                <button id="btnExcluir" type="submit" formaction="/deletar">
+                    Excluir Item
+                </button>
+                <button id="btnLimpar" type="reset">
+                    Limpar Campos
+                </button>
+            </div>
+        </form>
     </div>
-
 </div>
-
-<div class="linha">
-
-    <div class="campo">
-        <label>Função</label>
-        <input type="text" id="funcaoItem" name="descricao">
-    </div>
-
-    <div class="campo">
-        <label>Quantidade</label>
-        <input type="number" id="quantidadeItem" name="qtde">
-    </div>
-
- <div class="campo">
-        <label>Categoria</label>
-        <input type="text" id="categoriaItem" name="categoria">
-    </div>
-
-     <div class="campo">
-        <label>Preço</label>
-        <input type="number" id="precoItem" name="preco">
-    </div>
-
-</div>
-        <div id="botoes">
-
-            <button id="btnSalvar" type="submit">
-                Salvar Alterações
-            </button>
-
-            <button id="btnExcluir" type="submit" formaction="/deletar">
-                Excluir Item
-            </button>
-
-            <button id="btnLimpar">
-                Limpar Campos
-            </button>
-
-        </div>
-     </form>
-
-    </div>
-
-</div>
-
 
 <script>
-
 function selecionarItem(linha){
+    // CORREÇÃO: Preenche o ID oculto com o valor da primeira célula da tabela
+    document.getElementById("idItem").value =
+        linha.cells[0].innerText;
 
-   
     document.getElementById("nomeItem").value =
         linha.cells[1].innerText;
 
@@ -166,8 +134,6 @@ function selecionarItem(linha){
     document.getElementById("precoItem").value =
         linha.cells[5].innerText;
 }
-
-
 </script>
 
 </body>

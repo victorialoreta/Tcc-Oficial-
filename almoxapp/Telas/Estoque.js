@@ -15,7 +15,7 @@ import {
   Alert
 } from 'react-native';
 
-const API_URL = "http://10.154.20.24:5000";
+const API_URL = "http://10.154.20.74:5000/api";
 
 const DADOS_EXEMPLO = [
   {
@@ -155,12 +155,7 @@ export default function Estoque({ onNavegar, onIrParaEditar }) {
 
       <View style={styles.cardDetails}>
 
-        <View style={styles.detailBox}>
-          <Text style={styles.detailLabel}>QTD</Text>
-          <Text style={styles.detailValue}>
-            {item.qtde}
-          </Text>
-        </View>
+       
 
         <View style={styles.detailBox}>
           <Text style={styles.detailLabel}>PREÇO</Text>

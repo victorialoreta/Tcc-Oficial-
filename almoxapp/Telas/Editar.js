@@ -14,7 +14,7 @@ import {
 
 import logoSenai from '../assets/logosenai.png';
 
-const API_URL = "http://10.154.20.24:5000";
+const API_URL = "http://10.154.20.74:5000/api";
 
 export default function Editar({ onNavegar }) {
   const [idItem, setIdItem] = useState('');
